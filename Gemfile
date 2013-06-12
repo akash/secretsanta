@@ -5,6 +5,8 @@ gem 'sqlite3'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'devise'
+gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
