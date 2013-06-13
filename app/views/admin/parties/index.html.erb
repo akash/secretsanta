@@ -1,0 +1,7 @@
+<% @parties.each do |party| %>
+  <div>
+    <%= link_to party.name, admin_party_path(party) %>
+  </div>
+<% end %>
+
+<%=	link_to "create a new party", new_admin_party_path %>

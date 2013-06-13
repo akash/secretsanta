@@ -1,0 +1,20 @@
+<h1><%= @party.name %></h1>
+
+<% @party.users.each do |user| %>
+	<%= user.name %>
+<% end %>
+
+<%= form_tag(admin_party_invitations_path(@party)) do %>
+	<div class="field">
+		<%= label_tag "invitees[]", "email address: " %>
+		<%= text_field_tag "invitees[]" %>
+	</div>
+	<div class="actions">
+		<%= link_to("add more", "#", {:id => "add_more_emails"}) %>
+	</div>
+	<div class="actions">
+		<%= submit_tag "Invite" %>
+	</div>
+<% end %>
+
+<%= javascript "invitations.js" %>
