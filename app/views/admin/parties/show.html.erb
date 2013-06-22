@@ -5,7 +5,7 @@
 <% end %>
 
 <%= form_tag(admin_party_invitations_path(@party)) do %>
-	<div class="field">
+	<div class="field" id="invitees_list">
 		<%= label_tag "invitees[]", "email address: " %>
 		<%= text_field_tag "invitees[]" %>
 	</div>

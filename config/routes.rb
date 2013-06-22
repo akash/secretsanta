@@ -1,9 +1,11 @@
 Secretsanta::Application.routes.draw do
   devise_for :admin
-  devise_for :users
 
   root :to => "home#index"
   match "/admin" => "admin/parties#index"
+	resources :parties do
+		devise_for :users
+	end
 
   namespace :admin do
     resources :parties do

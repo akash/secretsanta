@@ -1,17 +1,41 @@
+#development:
+#  adapter: sqlite3
+#  database: db/development.sqlite3
+#  pool: 5
+#  timeout: 5000
+
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: postgresql
+  encoding: utf8
+  database: secretsanta_development
+  username: postgres
+  password:
+  host: localhost
+
+#test:
+#  adapter: sqlite3
+#  database: db/test.sqlite3
+#  pool: 5
+#  timeout: 5000
 
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: postgresql
+  encoding: utf8
+  database: secretsanta_test
+  username: postgres
+  password:
+  host: localhost
+
+#production:
+#  adapter: pg
+#  database: db/production.sqlite3
+#  pool: 5
+#  timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: postgresql
+  encoding: utf8
+  database: secretsanta_production
+  username: postgres
+  password:
+  host: localhost
