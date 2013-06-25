@@ -45,9 +45,16 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#">Secret Santa</a>
-          <div class="container-fluid nav-colhttp://www.inkampala.com/cafe-gustos-new-lounge/lapse">
+          <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Admin", admin_path  %></li>
+              <li><%= link_to "Admin", admin_path %></li>
+            </ul>
+						<ul class="nav pull-right">
+              <% if current_user %>
+								<li><%= link_to "Logout", destroy_user_party_session_path(current_user.party), :method => "delete" %></li>
+							<% else %>
+								<li><%= link_to "Log In", login_path %></li>
+							<% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
