@@ -1,7 +1,7 @@
 <h1><%= @party.name %></h1>
 
 <% @party.users.each do |user| %>
-	<%= user.name %>
+	<%= user.user_name %>
 <% end %>
 
 <%= form_tag(admin_party_invitations_path(@party)) do %>
