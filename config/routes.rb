@@ -16,6 +16,12 @@ Secretsanta::Application.routes.draw do
     resources :parties do
       resources :invitations
       resources :registrations
+			resources :users do
+				member do
+					get :exclusions
+					post :exclusions
+				end
+			end
     end
   end
 
