@@ -3,7 +3,7 @@
 	<p> here are the people currently in your party.</p>
 	<p><small>Some parties require exclusion rules, where you can specify which people are "exempt" from being selected by a specific person. click through below to set up rules for individuals</small></p>
 		<% @party.users.each do |user| %>
-			<p><%= link_to user.user_name, "#" %><p>
+			<p><%= link_to user.user_name, exclusions_admin_party_user_path(@party, user) %><p>
 		<% end %>
 </div>
 

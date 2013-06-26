@@ -1,0 +1,21 @@
+<h2>Exclusions</h2>
+<div class="hero-unit">
+	<%= form_tag(create_exclusions_admin_party_user_path, :class => "form-horizontal") do %>
+
+		<% @users.each do |user| %>
+			<div class="control-group">
+				<div class="control-label">
+					<%=	label_tag "user[exclusions][#{user.id}]", user.email, :class => "checkbox"%>
+				</div>
+				<div class="control">
+					<%=	check_box_tag "user[exclusions][#{user.id}]", user.id %>
+				</div>
+			</div>
+		<% end %>
+		<div class="control-group">
+			<div class="control-label">
+				<%= submit_tag "update", :class => "btn btn-inverse btn-large" %>
+			</div>
+		</div>
+	<% end %>
+</div>

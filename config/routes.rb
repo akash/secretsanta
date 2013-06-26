@@ -19,7 +19,7 @@ Secretsanta::Application.routes.draw do
 			resources :users do
 				member do
 					get :exclusions
-					post :exclusions
+					post :create_exclusions
 				end
 			end
     end

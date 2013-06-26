@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
 	belongs_to :party
 	belongs_to :receiver, :class_name => "User", :foreign_key => "reciver_id"
+	has_many :exclusions
+	has_many :excluded_users, :through => :exclusions
 
   attr_accessible :email, :user_name, :password, :password_confirmation, :remember_me
 
