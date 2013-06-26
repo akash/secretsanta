@@ -13,7 +13,7 @@
 	<%= form_tag(admin_party_invitations_path(@party)) do %>
 		<div class="field" id="invitees_list">
 			<%= label_tag "invitees[]", "email address: " %>
-			<%= text_field_tag "invitees[]" %>
+			<%= email_field_tag "invitees[]" %>
 		</div>
 		<div class="actions">
 			<%= link_to("add more", "#", {:id => "add_more_emails"}) %>
