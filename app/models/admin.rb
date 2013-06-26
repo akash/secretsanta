@@ -4,5 +4,5 @@ class Admin < ActiveRecord::Base
 
   has_many :parties
 
-  attr_accessible :user_name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :user_name, :email, :password, :password_confirmation, :remember_me, :unconfirmed_email
 end
