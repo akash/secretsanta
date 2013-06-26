@@ -7,6 +7,8 @@ rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 application.js: application-7bf12e2493ef16ca5e17fc725b2998ac.js
 application/index.js: application-7bf12e2493ef16ca5e17fc725b2998ac.js
+invitations.js: invitations-3498a5b2b94a208b5fab7764bc5ec55c.js
+invitations/index.js: invitations-3498a5b2b94a208b5fab7764bc5ec55c.js
 application.css: application-a1afbc72285eeb9aefdf304d57bb4fe0.css
 application/index.css: application-a1afbc72285eeb9aefdf304d57bb4fe0.css
 jquery.min.map: jquery.min-1c0cf7b6a3425fbd9a3bfccab0a99a4e.map
