@@ -9,8 +9,8 @@ application.js: application-7bf12e2493ef16ca5e17fc725b2998ac.js
 application/index.js: application-7bf12e2493ef16ca5e17fc725b2998ac.js
 invitations.js: invitations-3498a5b2b94a208b5fab7764bc5ec55c.js
 invitations/index.js: invitations-3498a5b2b94a208b5fab7764bc5ec55c.js
-application.css: application-a1afbc72285eeb9aefdf304d57bb4fe0.css
-application/index.css: application-a1afbc72285eeb9aefdf304d57bb4fe0.css
+application.css: application-0a2ff9c60d2a389c2efefd7fdb9988d9.css
+application/index.css: application-0a2ff9c60d2a389c2efefd7fdb9988d9.css
 jquery.min.map: jquery.min-1c0cf7b6a3425fbd9a3bfccab0a99a4e.map
 jquery/index.min.map: jquery.min-1c0cf7b6a3425fbd9a3bfccab0a99a4e.map
 fontawesome-webfont.eot: fontawesome-webfont-b49e662c23140944a17d6301d2259446.eot
