@@ -1,50 +1,32 @@
 <div class="span6 offset2">
-<div class="row-fluid">
-	<div class="hero-unit full-dark-green">
-		<p class="cramped">
-			<i class="icon-signin icon-white"></i> Sign In
-		</p>
-		<hr>
+	<div class="row-fluid">
+		<div class="hero-unit full-dark-green">
+			<p class="cramped">
+				<i class="icon-signin icon-white"></i> Sign In
+			</p>
+			<hr>
 
-		<%= form_for(resource, :as => resource_name, :url => user_party_session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
-
-			<div class="control-group">
-				<div class="control-label">
-					<%= f.label :user_name %>
-				</div>
-				<div class="controls">
+			<%= form_for(resource, :as => resource_name, :url => user_party_session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
+				<div class="offset3">
 					<%= f.text_field :user_name, :autofocus => true, :placeholder => "username" %>
 				</div>
-			</div>
-			<div class="control-group">
-				<div class="control-label">
-					<%= f.label :password %>
-				</div>
-				<div class="controls">
+				<div class="offset3">
 					<%= f.password_field :password, :placeholder => "password" %>
 				</div>
-			</div>
-			<% if devise_mapping.rememberable? -%>
-				<div class="control-group">
-					<div class="control-label">
-						<%= f.label :remember_me %>
+
+				<% if devise_mapping.rememberable?%>
+					<div class="offset3">
+						<%= f.label :remember_me, :class=>"for-checkbox" do %>
+							<%=	f.check_box :remember_me %> <small>Keep me signed in<small>
+						<% end %>
 					</div>
-					<div class="controls">
-						<%=	f.check_box :remember_me %>
-					</div>
-				</div>
+				<% end %>
+
+				<%= submit_tag "log in", :class => "btn btn-large offset4 span4" %>
 			<% end %>
 
-			<div class="control-group">
-				<div class="controls">
-					<%= submit_tag "log in", :class => "btn btn-large" %>
-				</div>
-			</div>
+			<%= render "users/shared/links" %>
 
-	<% end %>
-
-		<%= render "users/shared/links" %>
-
+		</div>
 	</div>
-</div>
 </div>
