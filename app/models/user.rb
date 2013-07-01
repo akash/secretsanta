@@ -7,16 +7,19 @@ class User < ActiveRecord::Base
 	has_many :exclusions
 	has_many :excluded_users, :through => :exclusions
 
-  attr_accessible :email, :user_name, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :user_name, :first_name, :last_name, :password, :password_confirmation, :remember_me, :receiver
 
 	def get_receiver
-		unless receiver
-			all_party_users = party.users
-			all_party_users.delete(self)
-			receiver = all_party_users.sample
+		unless self.receiver
+			all_party_users = party.users.reject{|user| user == self}
+			self.receiver = all_party_users.sample
 			save!
 		end
-		receiver
+		self.receiver
+	end
+
+	def full_name
+		"#{first_name} #{last_name}"
 	end
 
 end
