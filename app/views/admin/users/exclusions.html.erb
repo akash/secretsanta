@@ -7,13 +7,13 @@
 				<div class="control-label">
 					<%=	label_tag "user[exclusions][#{user.id}]", user.email, :class => "checkbox"%>
 				</div>
-				<div class="control">
+				<div class="controls">
 					<%=	check_box_tag "user[exclusions][#{user.id}]", user.id %>
 				</div>
 			</div>
 		<% end %>
 		<div class="control-group">
-			<div class="control-label">
+			<div class="controls">
 				<%= submit_tag "update", :class => "btn btn-inverse btn-large" %>
 			</div>
 		</div>
