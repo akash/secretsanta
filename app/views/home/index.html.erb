@@ -1,6 +1,25 @@
-<div class="hero-unit">
+<div class="row-fluid">
 	<h1>Welcome</h1>
-	<p>if you are here to view your secret santa, please sign in <%= link_to "here", login_path %></p>
-
-	<p>Note that registrations are by invitation, so if you would like to create a party and invite others, please go the <%= link_to "admin section", admin_path %></p>
+	<div class="span12">
+		<div class="row-fluid">
+			<div class="span6">
+				<div class="hero-unit full-dark-green">
+					<p class="cramped">
+						<i class="icon-gift icon-white"></i> <%= link_to "Log In", login_path %>
+					</p>
+					<hr>
+					<p>if you are here to view your secret santa, please sign in <%= link_to "here", login_path %></p>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="hero-unit full-dark-green">
+					<p class="cramped">
+						<i class="icon-cog icon-white"></i> <%= link_to "Admin", admin_path %>
+					</p>
+					<hr>
+					<p>Note that registrations are by invitation, so if you would like to create a party and invite others, please go the <%= link_to "admin section", admin_path %></p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
