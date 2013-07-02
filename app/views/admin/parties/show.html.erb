@@ -1,27 +1,35 @@
-<div class="hero-unit">
+<div class="row-fluid">
 	<h1><%= @party.name %></h1>
+	<h3 class="muted">Invite more people to your party, or select a name to set up exclusions</h3>
+
+	<%= render :partial => 'admin/shared/guide', :locals => {:box1_class => "full-admin-muted", :box2_class => "full-admin-green", :box3_class => "full-admin-muted", :box4_class => "full-admin-muted"} %>
+
+
+	<div class="hero-unit full-admin-green">
 	<p> here are the people currently in your party.</p>
 	<p><small>Some parties require exclusion rules, where you can specify which people are "exempt" from being selected by a specific person. click through below to set up rules for individuals</small></p>
 		<% @party.users.each do |user| %>
 			<p><%= link_to user.user_name, exclusions_admin_party_user_path(@party, user) %><p>
 		<% end %>
-</div>
+	</div>
 
-<div class="hero-unit">
-	<h3>Invite more people!</h3>
+	<div class="hero-unit full-admin-green span5 offset3">
+		<h3>Invite more people!</h3>
 
-	<%= form_tag(admin_party_invitations_path(@party)) do %>
-		<div class="field" id="invitees_list">
-			<%= label_tag "invitees[]", "email address: " %>
-			<%= email_field_tag "invitees[]" %>
-		</div>
-		<div class="actions">
-			<%= link_to("add more", "#", {:id => "add_more_emails"}) %>
-		</div>
-		<div class="actions">
-			<%= submit_tag "Invite", :class => "btn btn-primary btn-large" %>
-		</div>
-	<% end %>
-</div>
+		<%= form_tag(admin_party_invitations_path(@party)) do %>
+			<div class="field" id="invitees_list">
+				<%= label_tag "invitees[]", "email address: " %>
+				<%= email_field_tag "invitees[]" %>
+			</div>
+			<div class="actions">
+				<%= link_to("add more", "#", {:id => "add_more_emails"}) %>
+			</div>
+			<div class="actions">
+				<%= submit_tag "Invite", :class => "btn btn-primary btn-large" %>
+			</div>
+		<% end %>
+	</div>
 
-<%= javascript "invitations.js" %>
+	<%= javascript "invitations.js" %>
+
+	</div>
