@@ -1,4 +1,48 @@
-<div class="hero-unit">
+<div class="row-fluid">
+	<h1>Welcome</h1>
+	<p class="muted">You're just 4 simple steps away from starting your Secret Santa Party...</p>
+	<div class="row-fluid">
+		<div class="span3">
+			<div class="hero-unit fixed-admin poster full-admin-green">
+				<h3>
+					1. <%= link_to "Create a Party", new_admin_party_path %>
+				</h3>
+				<hr>
+				<p>if you are here to view your secret santa, please sign in <%= link_to "here", login_path, :class=>"black" %></p>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="hero-unit fixed-admin poster full-admin-green">
+				<h3>
+					2. <%= link_to "Invite People", "#" %>
+				</h3>
+				<hr>
+				<p>Note that registrations are by invitation, so if you would like to create a party and invite others, please go the <%= link_to "admin section", admin_path, :class=>"black"  %></p>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="hero-unit fixed-admin poster full-admin-green">
+				<h3>
+					3. <%= link_to "Set Exclusions", "#" %>
+				</h3>
+				<hr>
+				<p>Note that registrations are by invitation, so if you would like to create a party and invite others, please go the <%= link_to "admin section", admin_path, :class=>"black"  %></p>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="hero-unit fixed-admin poster full-admin-green">
+				<h3>
+					4. <%= link_to "Start Party!", "#" %>
+				</h3>
+				<hr>
+				<p>Note that registrations are by invitation, so if you would like to create a party and invite others, please go the <%= link_to "admin section", admin_path, :class=>"black"  %></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="hero-unit poster full-admin-green">
 	<h1>Your parties</h1>
 	<p> Here are the parties that you're running</p>
 	<% @parties.each do |party| %>
@@ -9,47 +53,4 @@
 
 
 	<%=	link_to "create a new party", new_admin_party_path, :class => "btn btn-inverse btn-large" %>
-</div>
-
-<div class="row-fluid">
-	<h1>Welcome</h1>
-	<p class="muted">You're just 4 simple steps away from starting your Secret Santa Party...</p>
-	<div class="row-fluid">
-		<div class="span3">
-			<div class="hero-unit fixed-admin">
-				<h3>
-					1. <%= link_to "Create a Party", new_admin_party_path %>
-				</h3>
-				<hr>
-				<p>if you are here to view your secret santa, please sign in <%= link_to "here", login_path, :class=>"black" %></p>
-			</div>
-		</div>
-		<div class="span3">
-			<div class="hero-unit fixed-admin">
-				<h3>
-					2. <%= link_to "Invite People", "#" %>
-				</h3>
-				<hr>
-				<p>Note that registrations are by invitation, so if you would like to create a party and invite others, please go the <%= link_to "admin section", admin_path, :class=>"black"  %></p>
-			</div>
-		</div>
-		<div class="span3">
-			<div class="hero-unit fixed-admin">
-				<h3>
-					3. <%= link_to "Setup Exclusions", "#" %>
-				</h3>
-				<hr>
-				<p>Note that registrations are by invitation, so if you would like to create a party and invite others, please go the <%= link_to "admin section", admin_path, :class=>"black"  %></p>
-			</div>
-		</div>
-		<div class="span3">
-			<div class="hero-unit fixed-admin">
-				<h3>
-					4. <%= link_to "Start Party!", "#" %>
-				</h3>
-				<hr>
-				<p>Note that registrations are by invitation, so if you would like to create a party and invite others, please go the <%= link_to "admin section", admin_path, :class=>"black"  %></p>
-			</div>
-		</div>
-	</div>
 </div>
