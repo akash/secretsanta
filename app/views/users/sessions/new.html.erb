@@ -1,6 +1,6 @@
 <div class="span6 offset2">
 	<div class="row-fluid">
-		<div class="hero-unit full-dark-green">
+		<div class="hero-unit full-dark-pink poster">
 			<p class="cramped">
 				<i class="icon-signin icon-white"></i> Sign In
 			</p>
@@ -17,12 +17,14 @@
 				<% if devise_mapping.rememberable?%>
 					<div class="offset3">
 						<%= f.label :remember_me, :class=>"for-checkbox" do %>
-							<%=	f.check_box :remember_me %> <small>Keep me signed in<small>
+							<%=	f.check_box :remember_me %> <small>Keep me signed in</small>
 						<% end %>
 					</div>
 				<% end %>
 
-				<%= submit_tag "log in", :class => "btn btn-large offset4 span4" %>
+				<div>
+					<%= submit_tag "log in", :class => "btn btn-large offset4 span4" %>
+				</div>
 			<% end %>
 
 			<%= render "users/shared/links" %>
