@@ -1,12 +1,20 @@
-<h2>Forgot your password?</h2>
+<div class="span6 offset2">
+	<div class="row-fluid">
+		<div class="hero-unit full-admin-green poster">
+			<h1>Reset password</h1>
+			<hr>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+			<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
+				<%= devise_error_messages! %>
+					<div class="offset3">
+						<%= f.email_field :email, :autofocus => true, :placeholder=>"email" %>
+					</div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+				<%= submit_tag "Send me password reset instructions", :class => "btn-inverse btn-large offset1" %>
+			<% end %>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+			<%= render "admin/shared/links" %>
 
-<%= render "admin/shared/links" %>
+		</div>
+	</div>
+</div>
