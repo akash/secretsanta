@@ -5,6 +5,6 @@ class Admin::AdminController < ActionController::Base
 
   def after_sign_in_path_for
     admin_path
-  end
+	end
 
 end

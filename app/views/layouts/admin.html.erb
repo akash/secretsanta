@@ -32,7 +32,7 @@
               <li><%= link_to "Home", admin_path %></li>
             </ul>
 						<ul class="nav pull-right">
-							<% if current_user %>
+							<% if current_admin %>
 								<li><%= link_to "Logout", destroy_admin_session_path, :method => "delete" %></li>
 							<% else %>
 								<li><%= link_to "Log In", new_admin_session_path %></li>
