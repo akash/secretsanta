@@ -4,33 +4,42 @@
 
 	<%= render :partial => 'admin/shared/guide', :locals => {:box1_class => "full-admin-muted", :box2_class => "full-admin-green", :box3_class => "full-admin-muted", :box4_class => "full-admin-muted"} %>
 
+	<div class="span12">
 
-	<div class="hero-unit full-admin-green">
-	<h3> here are the people currently in your party.</h3>
-	<p><small>Some parties require "exclusions", where you can specify which people are exempt from being selected by a specific person. just click a name to get started</small></p>
-		<ul class="poster unstyled">
-			<% @party.users.sort{|u1,u2| u1.full_name <=> u2.full_name}.each do |user| %>
-				<li><p><%= link_to user.user_name, exclusions_admin_party_user_path(@party, user) %><p></li>
-			<% end %>
-		</ul>
-	</div>
 
-	<div class="hero-unit full-admin-muted span5 offset3">
-		<h3>Invite more people!</h3>
-
-		<%= form_tag(admin_party_invitations_path(@party)) do %>
-			<div id="invitees_list">
-				<%= email_field_tag "invitees[]", "", :placeholder => "email address" %>
+		<div class="span6">
+			<div class="hero-unit full-admin-green">
+			<h3> here are the people currently in your party.</h3>
+			<p><small>Some parties require "exclusions", where you can specify which people are exempt from being selected by a specific person. just click a name to get started</small></p>
+				<ul class="poster unstyled">
+					<% @party.users.sort{|u1,u2| u1.full_name <=> u2.full_name}.each do |user| %>
+						<li><p><%= link_to user.user_name, exclusions_admin_party_user_path(@party, user) %><p></li>
+					<% end %>
+				</ul>
 			</div>
-			<div class="actions">
-				<%= link_to("add more", "#", {:id => "add_more_emails"}) %>
-			</div>
-			<div class="actions">
-				<%= submit_tag "Invite", :class => "btn btn-success btn-large" %>
-			</div>
-		<% end %>
-	</div>
+		</div>
 
-	<%= javascript "invitations.js" %>
+		<div class="span6">
+			<div class="hero-unit full-admin-muted">
+				<h3>Invite more people!</h3>
+
+				<%= form_tag(admin_party_invitations_path(@party)) do %>
+					<div id="invitees_list">
+						<%= email_field_tag "invitees[]", "", :placeholder => "email address" %>
+					</div>
+					<div class="actions">
+						<%= link_to("add more", "#", {:id => "add_more_emails"}) %>
+					</div>
+					<div class="actions">
+						<%= submit_tag "Invite", :class => "btn btn-success btn-large" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+
+		<%= javascript "invitations.js" %>
+
+		</div>
+
 
 	</div>

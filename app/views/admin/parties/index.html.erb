@@ -4,18 +4,20 @@
 
 	<%= render :partial => 'admin/shared/guide', :locals => {:box1_class => "full-admin-green", :box2_class => "full-admin-muted", :box3_class => "full-admin-muted", :box4_class => "full-admin-muted"} %>
 
-	<div class="hero-unit poster full-admin-green">
-		<% if @parties.empty? %>
-			<p>You haven't created any parties yet.</p>
-		<% else %>
-			<h2 class="offset5">Your Parties</h2>
-			<hr>
-			<% @parties.each do |party| %>
-				<div>
-					<%= link_to party.name, admin_party_path(party), :class => "main-link" %>
-				</div>
+	<div class="span12">
+		<div class="hero-unit poster full-admin-green">
+			<% if @parties.empty? %>
+				<p>You haven't created any parties yet.</p>
+			<% else %>
+				<h2 class="offset5">Your Parties</h2>
+				<hr>
+				<% @parties.each do |party| %>
+					<div>
+						<%= link_to party.name, admin_party_path(party), :class => "main-link" %>
+					</div>
+				<% end %>
 			<% end %>
-		<% end %>
-		<a href="<%= new_admin_party_path %>" class="btn btn-inverse btn-small"><i class="icon-plus-sign icon-in-button"></i> create new</a>
+			<a href="<%= new_admin_party_path %>" class="btn btn-inverse btn-small"><i class="icon-plus-sign icon-in-button"></i> create new</a>
+		</div>
 	</div>
 </div>

@@ -5,24 +5,26 @@
 	<%= render :partial => 'admin/shared/guide', :locals => {:box1_class => "full-admin-muted", :box2_class => "full-admin-muted", :box3_class => "full-admin-green", :box4_class => "full-admin-muted"} %>
 
 
-	<div class="hero-unit full-admin-green">
-		<h3>Selecting a name here will exclude that person from being assigned to this user</h3>
-		<%= form_tag(create_exclusions_admin_party_user_path, :class => "form-horizontal") do %>
-			<% @users.each do |user| %>
-				<div class="control-group">
-					<div class="control-label">
-						<%=	check_box_tag "user[exclusions][#{user.id}]", user.id, @user.excluded_users.include?(user) %>
+	<div class="span12">
+		<div class="hero-unit full-admin-green">
+			<h3>Selecting a name here will exclude that person from being assigned to this user</h3>
+			<%= form_tag(create_exclusions_admin_party_user_path, :class => "form-horizontal") do %>
+				<% @users.each do |user| %>
+					<div class="control-group">
+						<div class="control-label">
+							<%=	check_box_tag "user[exclusions][#{user.id}]", user.id, @user.excluded_users.include?(user) %>
+						</div>
+						<div class="controls">
+							<%=	label_tag "user[exclusions][#{user.id}]", user.full_name, :class => "for-checkbox" %>
+						</div>
 					</div>
+				<% end %>
+				<div class="control-group">
 					<div class="controls">
-						<%=	label_tag "user[exclusions][#{user.id}]", user.full_name, :class => "for-checkbox" %>
+						<%= submit_tag "Update exclusions", :class => "btn btn-inverse btn-large" %>
 					</div>
 				</div>
 			<% end %>
-			<div class="control-group">
-				<div class="controls">
-					<%= submit_tag "Update exclusions", :class => "btn btn-inverse btn-large" %>
-				</div>
-			</div>
-		<% end %>
+		</div>
 	</div>
 </div>
