@@ -6,12 +6,12 @@
 
 
 	<div class="hero-unit full-admin-green">
-		<p>Selecting a name here will exclude that person from being assigned to this user</p>
+		<h3>Selecting a name here will exclude that person from being assigned to this user</h3>
 		<%= form_tag(create_exclusions_admin_party_user_path, :class => "form-horizontal") do %>
 			<% @users.each do |user| %>
 				<div class="control-group">
 					<div class="control-label">
-						<%=	check_box_tag "user[exclusions][#{user.id}]", user.id %>
+						<%=	check_box_tag "user[exclusions][#{user.id}]", user.id, @user.excluded_users.include?(user) %>
 					</div>
 					<div class="controls">
 						<%=	label_tag "user[exclusions][#{user.id}]", user.full_name, :class => "for-checkbox" %>
@@ -20,7 +20,7 @@
 			<% end %>
 			<div class="control-group">
 				<div class="controls">
-					<%= submit_tag "update", :class => "btn btn-inverse btn-large" %>
+					<%= submit_tag "Update exclusions", :class => "btn btn-inverse btn-large" %>
 				</div>
 			</div>
 		<% end %>

@@ -6,7 +6,9 @@ var SecretSantaInvites = {
 
     setUpInviteesAddition: function(){
         $('#add_more_emails').click(function(){
-            $('#invitees_list').append('<label for="invitees_">email address: </label><input id="invitees_" name="invitees[]" type="text"/>')
+            $('#invitees_list').append('<input id="invitees_" name="invitees[]" placeholder="email address" type="email"/>')
+
+
         });
     }
 
