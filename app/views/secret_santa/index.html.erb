@@ -1,6 +1,19 @@
-click here to reveal your name
+<% if @user.party.launched? %>
+	<div class="span12">
+		<button type="button" data-toggle="modal" data-target="#my-receiver" class="btn btn-large btn-danger offset3 span5">Click here to reveal your name</button>
+	</div>
 
+	<div class="modal hide fade" id="my-receiver" tabindex="-1">
+		<div class="modal-body name-reveal fixed poster">
+			<h1><%= @user.get_receiver.full_name %></h1>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn btn-large btn-danger" class="close" data-dismiss="modal" aria-hidden="true">Close</a>
+		</div>
+	</div>
+<%else%>
+	<div class="hero-unit full-dark-pink poster">
+		<p>The creator is still adding the finishing touches to this party and it's not yet ready. We'll send you an email once they have launched the party.</p>
+	</div>
+<%end%>
 
-<div class="hero-unit">
-	<%=	@user.get_receiver.full_name %>
-</div>

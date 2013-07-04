@@ -1,0 +1,14 @@
+<div class="span8 offset2">
+	<div class="hero-unit full-admin-green">
+		<% if @party.users.blank? %>
+			<h3> There are currently no people signed up to your party. Use the box on the right to send out more invites.</h3>
+		<% else %>
+			<h3> Your party has been launched and can no longer be amended. The following people are participating</h3>
+			<ul class="poster unstyled">
+				<% @party.users.sort{|u1,u2| u1.full_name <=> u2.full_name}.each do |user| %>
+					<li><p><%= user.full_name %><p></li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+</div>

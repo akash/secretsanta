@@ -46,8 +46,16 @@
 
     <div class="container">
         <div class="span12">
-          <%= bootstrap_flash %>
-          <%= yield %>
+					<div class="row-fluid">
+						<div class="span12">
+							<div class="row-fluid">
+								<div class="span10"><%= image_tag "logo-striped.png", :class=>"mini"%></div>
+								<div class="span2"><%= image_tag "santa.png", :class=>"logo" %></div>
+							</div>
+							<%= bootstrap_flash %>
+							<%= yield %>
+						</div>
+					</div>
         </div>
       </div><!--/row-->
       <footer> </footer>

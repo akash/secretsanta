@@ -1,0 +1,19 @@
+<div class="span4">
+	<div class="hero-unit full-admin-muted">
+		<div class="offset1">
+			<h3 class="offset1">Invite people!</h3>
+
+			<%= form_tag(admin_party_invitations_path(@party)) do %>
+				<div id="invitees_list">
+					<%= email_field_tag "invitees[]", "", :placeholder => "email address" %>
+				</div>
+				<div class="actions">
+					<%= link_to("add more", "#", {:id => "add_more_emails"}) %>
+				</div>
+				<div class="actions">
+					<%= submit_tag "Invite", :class => "btn btn-success btn-large offset3" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

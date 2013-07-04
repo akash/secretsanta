@@ -21,5 +21,12 @@ class Admin::PartiesController < Admin::AdminController
   def show
     @party = Party.find params[:id]
     redirect_to admin_parties_path unless @party.admin == current_admin
-  end
+	end
+
+	def launch
+		party = Party.find params[:party_id]
+		return redirect_to admin_path(:notice => "You can only launch A party that you started") unless party.admin == current_admin
+		party.launch
+		redirect_to admin_party_path(party)
+	end
 end

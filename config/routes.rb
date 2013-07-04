@@ -14,6 +14,7 @@ Secretsanta::Application.routes.draw do
 
   namespace :admin do
     resources :parties do
+			post :launch
       resources :invitations
       resources :registrations
 			resources :users do

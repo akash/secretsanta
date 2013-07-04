@@ -11,9 +11,8 @@ group :assets do
 	gem "therubyracer"
 	gem "less-rails"
 	gem "twitter-bootstrap-rails"
+	gem "jquery-rails", "2.3.0"
 end
-
-gem 'jquery-rails'
 
 group :test do
   gem "rspec-rails"
