@@ -25,8 +25,9 @@ class Admin::PartiesController < Admin::AdminController
 
 	def launch
 		party = Party.find params[:party_id]
-		return redirect_to admin_path(:notice => "You can only launch A party that you started") unless party.admin == current_admin
+		return redirect_to admin_path(:notice => "Hey hey, none of that! You can only launch a party that you started") unless party.admin == current_admin
 		party.launch
-		redirect_to admin_party_path(party)
+		party.users.each {|user| UserMailer.party_launched(party, user, root_url).deliver}
+		redirect_to admin_party_path(party, :notice => "Let's get this party started! Participants have been emailed informing them the party is now launched")
 	end
 end

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+	</head>
+	<body>
+		<h1>Hey there <%= @user.full_name %>!</h1>
+
+		<p>Your party, <%= @party.name %>, has been officially launched! You can now log into the site to pick your name!</p>
+		<p>Please note that the creator of this party has set it up such that you will be unable to select any of the following names:</p>
+		<ul>
+			<% @user.excluded_users.each do |excluded_user| %>
+				<li> <%= excluded_user.full_name %> </li>
+			<% end %>
+		</ul>
+
+		<p>Just click the following link here to log in and pick your name - <%= @url %> </p>
+
+		<p>Enjoy the party!</p>
+	</body>
+</html>
