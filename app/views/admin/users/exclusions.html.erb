@@ -1,34 +1,32 @@
+<input type=hidden id="party-id" value="<%=	@party_id %>"/>
+<input type=hidden id="user-id" value="<%=	@user.id %>"/>
 <div class="row-fluid">
 	<h1>Exclusions</h1>
 	<h3 class="muted">decide which people, if any, this person cannot select</h3>
 
 	<%= render :partial => 'admin/shared/guide', :locals => {:box1_class => "full-admin-muted", :box2_class => "full-admin-muted", :box3_class => "full-admin-green", :box4_class => "full-admin-muted"} %>
 
-
-	<div class="span12">
-		<div class="hero-unit full-admin-green">
-			<div class="row-fluid">
-				<div class="span6" id="droppable-unexcluded">
-					<h3>Selecting a name here will exclude that person from being assigned to this user</h3>
-					<ul class="included-users">
-						<% @users.each do |user| %>
-							<li class="draggable btn-inverse btn-large span8">
-								<%=	 @user.full_name %>
-							</li>
-						<% end %>
-					</ul>
-				</div>
-				<div class="hero-unit span6 full-admin-muted fixed-admin fixed" id="droppable-excluded">
-					<h2>Exclusions</h2>
-					<p><small>drag names here to exclude them</small></p>
-					<ul class="excluded-users">
-					</ul>
-				</div>
-			</div>
+		<div class="hero-unit full-admin-green span6" id="droppable-unexcluded">
+			<ul id="included-users">
+				<% @included_users.each do |user| %>
+					<li class="draggable btn-inverse btn-large span10" id="<%=user.id%>"><%= user.full_name %></li>
+				<% end %>
+			</ul>
 		</div>
 
+		<div class="hero-unit span6 full-admin-muted fixed fixed-admin" id="droppable-excluded">
+			<h3 class="offset1">Exclusions <small>drag names here to exclude them</small></h3>
+			<ul id="excluded-users">
+				<% @excluded_users.each do |user| %>
+					<li class="draggable btn-inverse btn-large span10" id="<%=user.id%>"><%= user.full_name %></li>
+				<% end %>
+
+			</ul>
+		</div>
 
 	</div>
 </div>
 
+
+<%=	javascript "jquery.tinysort.min.js" %>
 <%=	javascript "exclusions.js" %>

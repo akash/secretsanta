@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
 	def get_receiver
 		unless self.receiver
-			all_party_users = party.users.reject{|user| user == self}
+			all_party_users = party.users.reject{|user| user == self || self.excluded_users.include?(user)}
 			self.receiver = all_party_users.sample
 			save!
 		end
@@ -20,6 +20,14 @@ class User < ActiveRecord::Base
 
 	def full_name
 		"#{first_name} #{last_name}"
+	end
+
+	def email_required?
+		false
+	end
+
+	def email_changed?
+		false
 	end
 
 end
