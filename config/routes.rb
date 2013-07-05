@@ -21,6 +21,8 @@ Secretsanta::Application.routes.draw do
 				member do
 					get :exclusions
 					post :create_exclusions
+					post :exclude
+					post :include
 				end
 			end
     end

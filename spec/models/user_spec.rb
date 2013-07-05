@@ -28,6 +28,17 @@ describe User do
 			party_user.get_receiver.should be_nil
 		end
 
+		it 'should ensure that user does not get excluded user' do
+			party = Party.create!(:name => "some party")
+			user = User.create!(:email => "a@b.com", :user_name => "aaa", :password => "11111111", :password_confirmation => "11111111")
+			excluded_user = User.create!(:email => "a@c.com", :user_name => "aab", :password => "11111111", :password_confirmation => "11111111")
+			party.users << user
+			party.users << excluded_user
+			user.excluded_users << excluded_user
+
+			user.get_receiver.should be_nil
+		end
+
 		it 'should not delete the party when assigning a user' do
 			party = Party.create!(:name => "some party")
 			party_user = User.create!(:email => "a@b.com", :user_name => "aaa", :password => "11111111", :password_confirmation => "11111111")

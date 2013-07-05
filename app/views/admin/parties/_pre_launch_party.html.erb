@@ -1,18 +1,25 @@
 <div class="span8">
 	<div class="hero-unit full-admin-green">
 		<% if @party.users.blank? %>
-			<h3> There are currently no people signed up to your party. Use the box on the right to send out more invites.</h3>
+			<p><strong>There are currently no people signed up to your party. Use the box on the right to send out more
+				invites</strong></p>
 		<% else %>
 			<h3> here are the people currently in your party.</h3>
-			<p><small>Some parties require "exclusions", where you can specify which people are exempt from being selected by a specific person. just click a name to get started</small></p>
+
+			<p>
+				<small>Some parties require "exclusions", where you can specify which people are exempt from being selected by a
+					specific person. just click a name to get started
+				</small>
+			</p>
 			<ul class="poster unstyled">
-				<% @party.users.sort{|u1,u2| u1.full_name <=> u2.full_name}.each do |user| %>
-					<li><p><%= link_to user.full_name, exclusions_admin_party_user_path(@party, user) %><p></li>
+				<% @party.users.sort { |u1, u2| u1.full_name <=> u2.full_name }.each do |user| %>
+					<li><p><%= link_to user.full_name, exclusions_admin_party_user_path(@party, user) %>
+						<p></li>
 				<% end %>
 			</ul>
-		<% end %>
-		<%= form_tag admin_party_launch_path(@party) do %>
-			<%=	submit_tag "Launch Party", :class => "btn btn-inverse btn-large offset3" %>
+			<%= form_tag admin_party_launch_path(@party) do %>
+				<%= submit_tag "Launch Party", :class => "btn btn-inverse btn-large offset4" %>
+			<% end %>
 		<% end %>
 	</div>
 </div>

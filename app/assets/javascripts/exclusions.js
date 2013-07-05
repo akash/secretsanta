@@ -1,14 +1,14 @@
 var SecretSantaExclusions = {
 
     init:function(){
-        var unexcludedZone = $( "#droppable-unexcluded" );
-        var excludedZone = $( "#droppable-excluded" );
-        this.setUpExclusions();
+        $('ul#excluded-users>li').tsort();
+        $('ul#included-users>li').tsort();
+        this.setUpDragging();
         this.setUpExcludedZone();
         this.setUpUnExcludedZone();
     },
 
-    setUpExclusions: function(){
+    setUpDragging: function(){
         $('.draggable').each(function(){
             $(this).draggable({
                 revert: "invalid"
@@ -18,8 +18,8 @@ var SecretSantaExclusions = {
 
     setUpExcludedZone: function(){
         $("#droppable-excluded").droppable({
-            accept: ".included-users .draggable",
-            tolerance: "fit",
+            accept: "#included-users .draggable",
+            tolerance: "touch",
             drop: function( event, ui ) {
                 SecretSantaExclusions.excludeUser( ui.draggable );
             }
@@ -28,7 +28,7 @@ var SecretSantaExclusions = {
 
     setUpUnExcludedZone: function(){
         $("#droppable-unexcluded").droppable({
-            accept: ".excluded-users .draggable",
+            accept: "#excluded-users .draggable",
             tolerance: "fit",
             drop: function( event, ui ) {
                 SecretSantaExclusions.includeUser( ui.draggable );
@@ -36,25 +36,38 @@ var SecretSantaExclusions = {
         });
     },
 
+    notifyExclusion: function (responseData) {
+    },
+
+    notifyInclusion: function (responseData) {
+
+    },
+
+
     excludeUser: function(user){
-        alert("excluding");
         user.fadeOut(function() {
-//            var $list = $( "ul", $trash ).length ?
-//                $( "ul", $trash ) :
-//                $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
-//
-//            user.find( "a.ui-icon-trash" ).remove();
-//            user.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
-//                user
-//                    .animate({ width: "48px" })
-//                    .find( "img" )
-//                    .animate({ height: "36px" });
-//            });
+            var excludedUserId = user.attr('id');
+            var partyId = $("#party-id").val();
+            var userId = $("#user-id").val();
+            $.post("/admin/parties/"+ partyId+"/users/"+userId+ "/exclude.json", {"excluded_user_id":excludedUserId}, SecretSantaExclusions.notifyExclusion, "JSON");
+
+            var excludedUsers = $('#excluded-users')
+            excludedUsers.append("<li class='draggable btn-inverse btn-large span10' id='"+user.attr('id')+"'>"+ user.html() + "</li>");
+            SecretSantaExclusions.init();
         });
     },
 
     includeUser: function(user){
-        alert("including");
+        user.fadeOut(function() {
+            var includedUserId = user.attr('id');
+            var partyId = $("#party-id").val();
+            var userId = $("#user-id").val();
+            $.post("/admin/parties/"+ partyId+"/users/"+userId+ "/include.json", {"included_user_id":includedUserId}, SecretSantaExclusions.notifyInclusion, "JSON");
+
+            var includedUsers = $('#included-users')
+            includedUsers.append("<li class='draggable btn-inverse btn-large span10' id='"+includedUserId+"'>"+ user.html() + "</li>");
+            SecretSantaExclusions.init();
+        });
     }
 
 };
