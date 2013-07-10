@@ -21,4 +21,14 @@ class Party < ActiveRecord::Base
 		save
 	end
 
+	def reset
+		self.status = STATUS[:pre_launch]
+		users.all.each do |user|
+			user.receiver = nil
+			user.receiver_id = nil
+			user.save
+		end
+		save
+	end
+
 end

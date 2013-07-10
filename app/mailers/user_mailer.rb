@@ -11,5 +11,10 @@ class UserMailer < ActionMailer::Base
 		@party = party
 		@user = user
 		@url = url
+		mail(:to => user.email, :subject => "your Crouching Santa party has been launched!")
+	end
+
+	def party_reset(party, user)
+		# code here
 	end
 end

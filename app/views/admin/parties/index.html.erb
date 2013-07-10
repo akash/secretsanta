@@ -11,13 +11,30 @@
 			<% else %>
 				<h1 class="offset4">Your Parties</h1>
 				<hr>
-				<% @parties.each do |party| %>
-					<div>
-						<%= link_to party.name, admin_party_path(party), :class => "main-link" %>
-					</div>
-				<% end %>
+				<table>
+					<thead><th></th><th></th></thead>
+					<% @parties.each do |party| %>
+						<tr>
+							<td><%= link_to party.name, admin_party_path(party), :class => "main-link" %></td>
+
+							<td>
+								<% if party.launched? %>
+									<%= form_tag admin_party_reset_path(party) do %>
+										<%= submit_tag "Reset Party", :class => "btn btn-danger btn-large offset4", :onclick => "return SecretSantaInvites.setUpPartyReset()" %>
+									<% end %>
+								<% else %>
+									<%= form_tag admin_party_launch_path(party) do %>
+										<%= submit_tag "Launch Party", :class => "btn btn-inverse btn-large offset4" %>
+									<% end %>
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+				</table>
 			<% end %>
 			<a href="<%= new_admin_party_path %>" class="btn btn-inverse btn-large"><i class="icon-plus-sign icon-in-button"></i> create new</a>
 		</div>
 	</div>
 </div>
+
+<%=	 javascript "invitations.js" %>

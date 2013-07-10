@@ -7,6 +7,13 @@ class SecretSantaController < ApplicationController
 
 	def index
 		@user = current_user
+		if @user.party.launched?
+			receiver = @user.get_receiver
+			@user.receiver_id = receiver.id
+			@user.save!
+		else
+			render :unlaunched
+		end
 	end
 
 end

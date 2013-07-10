@@ -3,23 +3,22 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 	belongs_to :party
-	belongs_to :receiver, :class_name => "User", :foreign_key => "reciver_id"
+	belongs_to :receiver, :class_name => "User", :foreign_key => "receiver_id"
 	has_many :exclusions
 	has_many :excluded_users, :through => :exclusions
 
   attr_accessible :email, :user_name, :first_name, :last_name, :password, :password_confirmation, :remember_me, :receiver
 
 	def get_receiver
-		unless self.receiver
-			all_party_users = party.users.reject{|user| user == self || self.excluded_users.include?(user)}
-			self.receiver = all_party_users.sample
-			save!
-		end
-		self.receiver
+		receiver || party.users.reject{|user| user == self || self.excluded_users.include?(user) || User.find(user.id).has_secret_santa?}.sample
 	end
 
 	def full_name
 		"#{first_name} #{last_name}"
+	end
+
+	def has_secret_santa?
+		User.exists? :receiver_id => self.id
 	end
 
 	def email_required?
