@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "noreply@secretsanta.com"
+  default from: "noreply@crouchingsanta.com"
 
 	def invite(admin, invitee_email, signup_url)
 		@signup_url = signup_url
@@ -15,6 +15,6 @@ class UserMailer < ActionMailer::Base
 	end
 
 	def party_reset(party, user)
-		# code here
+
 	end
 end
