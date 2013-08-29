@@ -2,7 +2,7 @@
 	<h1><%= @party.user_name %></h1>
 	<h3 class="muted">Invite more people to your party, or select a name to set up exclusions</h3>
 
-	<%= render :partial => 'admin/shared/guide', :locals => {:box1_class => "full-admin-muted", :box2_class => "full-admin-green", :box3_class => "full-admin-muted", :box4_class => "full-admin-muted"} %>
+	<%= render :partial => 'admin/shared/guide', :locals => {:box1_class => "full-admin-green", :box2_class => "full-admin-muted", :box3_class => "full-admin-muted"} %>
 
 	<div class="span12">
 		<% if @party.launched? %>

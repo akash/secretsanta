@@ -9,6 +9,8 @@ logo-striped.png: logo-striped-7c1f65082af2dfcb1d774a99b7a28d80.png
 logo-striped/index.png: logo-striped-7c1f65082af2dfcb1d774a99b7a28d80.png
 nightshade-hero.png: nightshade-hero-c95ca6b789ee884ff3a69cfcb1e63057.png
 nightshade-hero/index.png: nightshade-hero-c95ca6b789ee884ff3a69cfcb1e63057.png
+pink-hero-inversed.png: pink-hero-inversed-b21aa7a526f7a72613862bfe82bba342.png
+pink-hero-inversed/index.png: pink-hero-inversed-b21aa7a526f7a72613862bfe82bba342.png
 pink-hero.png: pink-hero-0e6b50a50013920c1aba69efa560cbe5.png
 pink-hero/index.png: pink-hero-0e6b50a50013920c1aba69efa560cbe5.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
@@ -19,8 +21,8 @@ application.js: application-6ad783e05c73a26e945090cf63db5240.js
 application/index.js: application-6ad783e05c73a26e945090cf63db5240.js
 invitations.js: invitations-befcc118b549c86fcfb718cbe7c4446f.js
 invitations/index.js: invitations-befcc118b549c86fcfb718cbe7c4446f.js
-application.css: application-5aaf5bc88a0584c2c51b0cbfdfd1e104.css
-application/index.css: application-5aaf5bc88a0584c2c51b0cbfdfd1e104.css
+application.css: application-8b6044973ec68264b35d3a41a7a442aa.css
+application/index.css: application-8b6044973ec68264b35d3a41a7a442aa.css
 jquery.min.map: jquery.min-8b58c0fbf303b938d8e749262f7e50dd.map
 jquery/index.min.map: jquery.min-8b58c0fbf303b938d8e749262f7e50dd.map
 fontawesome-webfont.eot: fontawesome-webfont-b49e662c23140944a17d6301d2259446.eot

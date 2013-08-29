@@ -1,29 +1,22 @@
 	<div class="span12">
-		<div class="span3">
+		<div class="span4">
 			<div class="hero-unit fixed-admin poster <%= box1_class %>">
 				<h3>
-					1. Create a Party
+					1. Invite People
 				</h3>
 			</div>
 		</div>
-		<div class="span3">
+		<div class="span4">
 			<div class="hero-unit fixed-admin poster <%= box2_class %>">
 				<h3>
-					2. Invite People
+					2. Set Exclusions
 				</h3>
 			</div>
 		</div>
-		<div class="span3">
+		<div class="span4">
 			<div class="hero-unit fixed-admin poster <%= box3_class %>">
 				<h3>
-					3. Set Exclusions
-				</h3>
-			</div>
-		</div>
-		<div class="span3">
-			<div class="hero-unit fixed-admin poster <%= box4_class %>">
-				<h3>
-					4. Start Party!
+					<%= link_to "3. Start Party!", admin_party_launch_path(current_admin), :method => "post"%>
 				</h3>
 			</div>
 		</div>
