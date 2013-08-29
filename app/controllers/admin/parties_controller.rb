@@ -1,30 +1,11 @@
 class Admin::PartiesController < Admin::AdminController
 
-  def index
-    @parties = Party.administered_by(current_admin).sort_by &:name
-  end
-
-  def new
-    @party = Party.new
-  end
-
-  def create
-    @party = Party.new params[:party]
-    @party.admin = current_admin
-    if @party.save
-      redirect_to admin_parties_path, :flash => {:notice => "Party '#{@party.name}' successfully created"}
-    else
-      render :new
-    end
-  end
-
   def show
-    @party = Party.find params[:id]
-    redirect_to admin_parties_path unless @party.admin == current_admin
+		@party = current_admin
 	end
 
 	def launch
-		party = Party.find params[:party_id]
+		party = current_admin
 		return redirect_to admin_path(:notice => "Hey hey, none of that! You can only launch a party that you started") unless party.admin == current_admin
 		party.launch
 		party.users.each {|user| UserMailer.delay.party_launched(party, user, root_url)}
@@ -32,11 +13,11 @@ class Admin::PartiesController < Admin::AdminController
 	end
 
 	def reset_details
-		@party = Party.find params[:party_id]
+		@party = current_admin
 	end
 
 	def reset
-		party = Party.find params[:party_id]
+		party = current_admin
 		return redirect_to admin_path(:notice => "Hey hey, none of that! You can only reset a party that you started") unless party.admin == current_admin
 		party.reset
 		party.users.each {|user| UserMailer.delay.party_reset(party, user, params[:message])}

@@ -6,7 +6,7 @@
 	<body>
 		<h1>Hey there <%= @user.full_name %>!</h1>
 
-		<p>Your party, <%= @party.name %>, has been officially launched! You can now log into the site to pick your name!</p>
+		<p>Your party, <%= @party.user_name %>, has been officially launched! You can now log into the site to pick your name!</p>
 		<p>Please note that the creator of this party has set it up such that you will be unable to select any of the following names:</p>
 		<ul>
 			<% @user.excluded_users.each do |excluded_user| %>

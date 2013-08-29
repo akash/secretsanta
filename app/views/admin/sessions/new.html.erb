@@ -8,10 +8,10 @@
 
 			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
 				<div class="offset3">
-					<%= f.text_field :user_name, :autofocus => true, :placeholder => "username" %>
+					<%= f.text_field :user_name, :autofocus => true, :placeholder => "party name" %>
 				</div>
 				<div class="offset3">
-					<%= f.password_field :password, :placeholder => "password" %>
+					<%= f.password_field :password, :placeholder => "party password" %>
 				</div>
 
 				<% if devise_mapping.rememberable?%>

@@ -2,7 +2,7 @@ Secretsanta::Application.routes.draw do
   devise_for :admin
 
   root :to => "home#index"
-  match "/admin" => "admin/parties#index"
+  match "/admin" => "admin/parties#show"
 	match "/users/:user_id/party/:party_id/mysecretsanta" => "secret_santa#index", :as => "my_secret_santa"
 	resources :parties do
 		devise_for :users, :controllers => { :registrations => "registrations" }
