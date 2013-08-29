@@ -1,13 +1,11 @@
-<div class="span12">
-		<button type="button" data-toggle="modal" data-target="#my-receiver" class="btn btn-large btn-danger offset3 span5">Click here to reveal your name</button>
-	</div>
-
-<div class="modal hide fade" id="my-receiver" tabindex="-1">
-	<div class="modal-body name-reveal fixed poster">
+<div id="accordion">
+	<h3>
+		<button type="button" class="btn btn-large btn-danger span5 offset3">Show/Hide your name</button>
+	</h3>
+	<div class="name-reveal span12" id="no-border">
 		<h1><%= @user.receiver.full_name %></h1>
-	</div>
-	<div class="modal-footer">
-		<a href="#" class="btn btn-large btn-danger" class="close" data-dismiss="modal" aria-hidden="true">Close</a>
 	</div>
 </div>
 
+
+<%=	javascript "collapse.js" %>

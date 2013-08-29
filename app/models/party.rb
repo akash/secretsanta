@@ -2,8 +2,9 @@ class Party < ActiveRecord::Base
 
   belongs_to :admin
   has_many :users
+	after_create :randomise_id
 
-  attr_accessible :name, :admin, :status
+  attr_accessible :name, :admin, :status, :id
 
   validates :name, :presence => true
   validates :name, :uniqueness => {:case_sensitive => false}
@@ -30,5 +31,10 @@ class Party < ActiveRecord::Base
 		end
 		save
 	end
+
+	private
+		def randomise_id
+			self.id = Random.rand(99999)
+		end
 
 end

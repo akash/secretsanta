@@ -19,6 +19,7 @@
 
 							<td>
 								<% if party.launched? %>
+									<%= link_to "Reset Party", admin_party_reset_details_path(party), :class => "btn btn-danger btn-large offset4 span12" %>
 									<%= form_tag admin_party_reset_path(party) do %>
 										<%= submit_tag "Reset Party", :class => "btn btn-danger btn-large offset4", :onclick => "return SecretSantaInvites.setUpPartyReset()" %>
 									<% end %>

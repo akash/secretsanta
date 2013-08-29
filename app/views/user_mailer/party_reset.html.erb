@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+	</head>
+	<body>
+		<h1>Hey there <%= @user.full_name %>!</h1>
+
+		<p>Your party, <%= @party.name %>, has just been reset!</p>
+		<p>I'm afraid this means that all selections have been reset and that <strong>you will have to login again to re-pick your name</strong></p>
+
+		<p>The creator of the party left the following message for you:</p>
+
+		<p><%= @message %></p>
+
+	</body>
+</html>

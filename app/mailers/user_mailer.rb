@@ -14,7 +14,9 @@ class UserMailer < ActionMailer::Base
 		mail(:to => user.email, :subject => "your Crouching Santa party has been launched!")
 	end
 
-	def party_reset(party, user)
-
+	def party_reset(party, user, message)
+		@party = party
+		@user = user
+		mail(:to => user.email, :subject => "The party: '#{party.name}' has been reset")
 	end
 end

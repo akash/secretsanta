@@ -15,7 +15,6 @@ Secretsanta::Application.routes.draw do
   namespace :admin do
     resources :parties do
 			post :launch
-			post :reset
       resources :invitations
       resources :registrations
 			resources :users do
@@ -27,6 +26,8 @@ Secretsanta::Application.routes.draw do
 				end
 			end
     end
-  end
+	end
+	match "/admin/parties/:party_id/reset" => "admin/parties#reset_details", :via => "get", :as => "admin_party_reset_details"
+	match "/admin/parties/:party_id/reset" => "admin/parties#reset", :via => "post", :as => "admin_party_reset"
 
 end

@@ -31,11 +31,15 @@ class Admin::PartiesController < Admin::AdminController
 		redirect_to admin_party_path(party), :notice => "Let's get this party started! Participants have been emailed informing them the party is now launched"
 	end
 
+	def reset_details
+		@party = Party.find params[:party_id]
+	end
+
 	def reset
 		party = Party.find params[:party_id]
 		return redirect_to admin_path(:notice => "Hey hey, none of that! You can only reset a party that you started") unless party.admin == current_admin
 		party.reset
-		party.users.each {|user| UserMailer.delay.party_reset(party, user)}
+		party.users.each {|user| UserMailer.delay.party_reset(party, user, params[:message])}
 		redirect_to admin_parties_path, :notice => "Your party has been reset. All members have been notified and will have to wait for you to relaunch the party before they can log in and pick their new names"
 	end
 end
