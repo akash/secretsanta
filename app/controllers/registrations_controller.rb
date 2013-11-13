@@ -3,12 +3,12 @@ class RegistrationsController < Devise::RegistrationsController
 	skip_before_filter :authenticate_user!
 
 	def new
-		@party = Party.find params[:party_id]
+		@party = Admin.find params[:party_id]
 		@user = User.new
 	end
 
 	def create
-		@party = Party.find params[:party_id]
+		@party = Admin.find params[:party_id]
 		@user = User.new params[:user]
 		if @user.valid?
 			@party.users << @user

@@ -13,11 +13,11 @@
 			</p>
 			<ul class="poster unstyled">
 				<% @party.users.sort { |u1, u2| u1.full_name <=> u2.full_name }.each do |user| %>
-					<li><p><%= link_to user.full_name, exclusions_admin_party_user_path(@party, user) %>
+					<li><p><%= link_to user.full_name, exclusions_admin_user_path(@party, user) %>
 						<p></li>
 				<% end %>
 			</ul>
-			<%= form_tag admin_party_launch_path(@party) do %>
+			<%= form_tag admin_launch_path(@party) do %>
 				<%= submit_tag "Launch Party", :class => "btn btn-inverse btn-large offset4" %>
 			<% end %>
 		<% end %>

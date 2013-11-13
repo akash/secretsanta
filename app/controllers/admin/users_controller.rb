@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::AdminController
 		@user = User.find params[:id]
 		@party_id = params[:party_id]
 
-		users = Party.find(@party_id).users.reject{|user| user == @user}
+		users = Admin.find(@party_id).users.reject{|user| user == @user}
 		@excluded_users = []
 		@included_users = []
 		users.each { |user| @user.excluded_users.include?(user) ? @excluded_users << user : @included_users << user }
