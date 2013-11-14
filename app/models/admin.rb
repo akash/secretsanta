@@ -7,7 +7,7 @@ class Admin < ActiveRecord::Base
 
 	attr_accessible :user_name, :email, :password, :password_confirmation, :remember_me, :unconfirmed_email, :status, :id
 
-	validates :user_name, :presence => {:message => "Party Name is required"}
+	validates :user_name, :presence => {:message => "Party Name can't be blank"}
 
 	STATUS = {:pre_launch => "Pre Launch", :launched => "launched"}
 

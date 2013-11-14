@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::AdminController
 		@user = User.find params[:id]
 		@party_id = params[:party_id]
 
-		users = Admin.find(@party_id).users.reject{|user| user == @user}
+		users = current_admin.users.reject{|user| user == @user}
 		@excluded_users = []
 		@included_users = []
 		users.each { |user| @user.excluded_users.include?(user) ? @excluded_users << user : @included_users << user }
@@ -18,7 +18,7 @@ class Admin::UsersController < Admin::AdminController
 			exclusions = params[:user][:exclusions].keys.map{|id| Exclusion.new(:excluded_user_id => id)}
 			@user.exclusions = exclusions
 		end
-		redirect_to admin_party_path(params[:party_id]), :notice => "Successfully updated exclusions for #{@user.full_name}"
+		redirect_to admin_path(params[:party_id]), :notice => "Successfully updated exclusions for #{@user.full_name}"
 	end
 
 	def exclude

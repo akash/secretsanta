@@ -13,7 +13,7 @@
 			</p>
 			<ul class="poster unstyled">
 				<% @party.users.sort { |u1, u2| u1.full_name <=> u2.full_name }.each do |user| %>
-					<li><p><%= link_to user.full_name, exclusions_admin_user_path(@party, user) %>
+					<li><p><%= link_to user.full_name, exclusions_admin_user_path(user) %>
 						<p></li>
 				<% end %>
 			</ul>

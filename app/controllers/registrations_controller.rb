@@ -4,6 +4,9 @@ class RegistrationsController < Devise::RegistrationsController
 
 	def new
 		@party = Admin.find params[:party_id]
+		puts "*"*100
+		puts @party.inspect
+		puts "*"*100
 		@user = User.new
 	end
 
@@ -17,6 +20,6 @@ class RegistrationsController < Devise::RegistrationsController
 		else
 			render :new
 		end
-
 	end
+
 end

@@ -3,7 +3,7 @@
 		<div class="offset1">
 			<h3 class="offset1">Invite people!</h3>
 
-			<%= form_tag(admin_party_invitations_path(@party)) do %>
+			<%= form_tag(admin_invitations_path) do %>
 				<div id="invitees_list">
 					<%= email_field_tag "invitees[]", "", :placeholder => "email address" %>
 				</div>

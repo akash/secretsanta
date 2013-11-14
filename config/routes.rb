@@ -1,5 +1,6 @@
 Secretsanta::Application.routes.draw do
-  devise_for :admin
+  #devise_for :admin
+	devise_for :admin, :controllers => {:registrations => "admin/registrations"}
 
   root :to => "home#index"
   match "/admin" => "admin/admin#show"
