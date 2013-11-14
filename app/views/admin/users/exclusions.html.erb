@@ -5,29 +5,21 @@
 	<h3 class="muted">decide which people, if any, this person cannot select</h3>
 
 	<%= render :partial => 'admin/shared/guide', :locals => {:box1_class => "full-admin-muted", :box2_class => "full-admin-green", :box3_class => "full-admin-muted"} %>
-
-		<div class="hero-unit full-admin-green span6" id="droppable-unexcluded">
-			<h3 class="offset1">Available <small>drag names here to un-exclude them</small></h3>
-			<ul id="included-users">
-				<% @included_users.each do |user| %>
-					<li class="draggable btn-inverse btn-large span10" id="<%=user.id%>"><%= user.full_name %></li>
+		<div class="hero-unit full-admin-green span8 offset2">
+			<%= form_tag(create_exclusions_admin_user_path(@user), :class => "form-horizontal") do %>
+				<% @users.each do |user| %>
+					<div class="control-group">
+						<div class="control-label span3 offset3">
+							<%=	label_tag "user[exclusions][#{user.id}]", user.email, :class => "checkbox" %>
+						</div>
+						<div class="control span3 offset1">
+							<%=	check_box_tag "user[exclusions][#{user.id}]", user.id, @user.exclusions.any?{|e| e.excluded_user_id == user.id} %>
+						</div>
+					</div>
 				<% end %>
-			</ul>
+				<div class="control-group offset3">
+						<%= submit_tag "Update Exclusions", :class => "btn btn-inverse btn-large" %>
+				</div>
+			<% end %>
 		</div>
-
-		<div class="hero-unit span6 full-admin-muted fixed fixed-admin" id="droppable-excluded">
-			<h3 class="offset1">Exclusions <small>drag names here to exclude them</small></h3>
-			<ul id="excluded-users">
-				<% @excluded_users.each do |user| %>
-					<li class="draggable btn-inverse btn-large span10" id="<%=user.id%>"><%= user.full_name %></li>
-				<% end %>
-
-			</ul>
-		</div>
-
-	</div>
 </div>
-
-
-<%=	javascript "jquery.tinysort.min.js" %>
-<%=	javascript "exclusions.js" %>

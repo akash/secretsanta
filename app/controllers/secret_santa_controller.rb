@@ -7,7 +7,7 @@ class SecretSantaController < ApplicationController
 
 	def index
 		@user = current_user
-		if @user.party.launched?
+		if @user.admin.launched?
 			receiver = @user.get_receiver
 			@user.receiver_id = receiver.id
 			@user.save!

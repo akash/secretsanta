@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :user_name, :first_name, :last_name, :password, :password_confirmation, :remember_me, :receiver
 
 	def get_receiver
-		receiver || party.users.reject{|user| user == self || self.excluded_users.include?(user) || User.find(user.id).has_secret_santa?}.sample
+		receiver || admin.users.reject{|user| user == self || self.excluded_users.include?(user) || User.find(user.id).has_secret_santa?}.sample
 	end
 
 	def full_name

@@ -4,10 +4,7 @@ class Admin::UsersController < Admin::AdminController
 		@user = User.find params[:id]
 		@party_id = params[:party_id]
 
-		users = current_admin.users.reject{|user| user == @user}
-		@excluded_users = []
-		@included_users = []
-		users.each { |user| @user.excluded_users.include?(user) ? @excluded_users << user : @included_users << user }
+		@users = current_admin.users.reject{|user| user == @user}
 	end
 
 	def create_exclusions

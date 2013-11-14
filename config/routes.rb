@@ -14,7 +14,7 @@ Secretsanta::Application.routes.draw do
 	end
 
   namespace :admin do
-		post :launch
+		match "launch" => "admin#launch"
 		resources :invitations
 		resources :registrations
 		resources :users do

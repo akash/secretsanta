@@ -12,9 +12,10 @@ class Admin::AdminController < ActionController::Base
 	end
 
 	def launch
+		party = current_admin
 		party.launch
 		party.users.each {|user| UserMailer.delay.party_launched(party, user, root_url)}
-		redirect_to admin_path(party), :notice => "Let's get this party started! Participants have been emailed informing them the party is now launched"
+		redirect_to admin_path, :notice => "Let's get this party started! Participants have been emailed informing them the party is now launched"
 	end
 
 	def reset_details
