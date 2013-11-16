@@ -15,6 +15,7 @@ class UserMailer < ActionMailer::Base
 	end
 
 	def party_reset(party, user, message)
+		@message = message
 		@party = party
 		@user = user
 		mail(:to => user.email, :subject => "The party: '#{party.user_name}' has been reset")

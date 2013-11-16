@@ -4,11 +4,8 @@ class Admin::InvitationsController < Admin::AdminController
 
   def create
 		invitees = params[:invitees].select {|invitee| EMAIL_REGEXP.match(invitee) }
-
-		party_id = current_admin.id
-		invitees.each {|invitee|  UserMailer.delay.invite(current_admin, invitee, new_user_party_registration_url(party_id))}
-
-		redirect_to admin_path(party_id), :flash => {:notice => "Successfully invited #{invitees.size} people."}
+		invitees.each {|invitee|  UserMailer.delay.invite(current_admin, invitee, new_user_party_registration_url(current_admin.id))}
+		redirect_to admin_path, :flash => {:notice => "Successfully invited #{invitees.size} people."}
 	end
 
 end
