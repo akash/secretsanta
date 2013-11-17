@@ -3,10 +3,15 @@ require 'spec_helper'
 describe User do
 	describe "receiver" do
 		it 'should be generated from same party' do
-			party = Party.create!(:name => "some party")
+			party = Admin.create!(:user_name => "some party", :email => "me@you.com", :password => "password", :password_confirmation => "password")
 			party_user = User.create!(:email => "a@b.com", :user_name => "aaa", :password => "11111111", :password_confirmation => "11111111")
 			another_party_user = User.create!(:email => "a@c.com", :user_name => "bbb", :password => "11111112", :password_confirmation => "11111112")
 			party.users << party_user
+			puts "*"*100
+			puts party.id.inspect
+			puts party.users.inspect
+			puts party_user.inspect
+			puts "*"*100
 			party.users << another_party_user
 
 			party_user.get_receiver.should == another_party_user
@@ -21,7 +26,7 @@ describe User do
 		end
 
 		it 'should ensure that user does not get themselves' do
-			party = Party.create!(:name => "some party")
+			party = Admin.create!(:user_name => "some party", :email => "me@you.com", :password => "password", :password_confirmation => "password")
 			party_user = User.create!(:email => "a@b.com", :user_name => "aaa", :password => "11111111", :password_confirmation => "11111111")
 			party.users << party_user
 
@@ -29,7 +34,7 @@ describe User do
 		end
 
 		it 'should ensure that user does not get excluded user' do
-			party = Party.create!(:name => "some party")
+			party = Admin.create!(:user_name => "some party", :email => "me@you.com", :password => "password", :password_confirmation => "password")
 			user = User.create!(:email => "a@b.com", :user_name => "aaa", :password => "11111111", :password_confirmation => "11111111")
 			excluded_user = User.create!(:email => "a@c.com", :user_name => "aab", :password => "11111111", :password_confirmation => "11111111")
 			party.users << user
@@ -40,7 +45,7 @@ describe User do
 		end
 
 		it 'should not delete the party when assigning a user' do
-			party = Party.create!(:name => "some party")
+			party = Admin.create!(:user_name => "some party", :email => "me@you.com", :password => "password", :password_confirmation => "password")
 			party_user = User.create!(:email => "a@b.com", :user_name => "aaa", :password => "11111111", :password_confirmation => "11111111")
 			another_party_user = User.create!(:email => "a@c.com", :user_name => "bbb", :password => "11111112", :password_confirmation => "11111112")
 			party.users << party_user
@@ -52,7 +57,7 @@ describe User do
 		end
 
 		it 'should know if user has a secret santa assigned' do
-			party = Party.create!(:name => "some party")
+			party = Admin.create!(:user_name => "some party", :email => "me@you.com", :password => "password", :password_confirmation => "password")
 			receiver = User.create!(:email => "a@b.com", :user_name => "aaa", :password => "11111111", :password_confirmation => "11111111")
 			secret_santa = User.create!(:email => "a@c.com", :user_name => "bbb", :password => "11111112", :password_confirmation => "11111112")
 			party.users << receiver
@@ -66,7 +71,7 @@ describe User do
 		end
 
 		it 'should not allow the same user to be assigned to more than 1 user' do
-			party = Party.create!(:name => "some party")
+			party = Admin.create!(:user_name => "some party", :email => "me@you.com", :password => "password", :password_confirmation => "password")
 			user = User.create!(:email => "a@b.com", :user_name => "aaa", :password => "11111111", :password_confirmation => "11111111")
 			user2 = User.create!(:email => "a@c.com", :user_name => "bbb", :password => "11111112", :password_confirmation => "11111112")
 			user3 = User.create!(:email => "a@d.com", :user_name => "ccc", :password => "11111113", :password_confirmation => "11111113")
