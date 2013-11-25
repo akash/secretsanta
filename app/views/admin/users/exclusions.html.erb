@@ -10,7 +10,7 @@
 				<% @users.each do |user| %>
 					<div class="control-group">
 						<div class="control-label span3 offset3">
-							<%=	label_tag "user[exclusions][#{user.id}]", user.email, :class => "checkbox" %>
+							<%=	label_tag "user[exclusions][#{user.id}]", user.full_name, :class => "checkbox" %>
 						</div>
 						<div class="control span3 offset1">
 							<%=	check_box_tag "user[exclusions][#{user.id}]", user.id, @user.exclusions.any?{|e| e.excluded_user_id == user.id} %>
